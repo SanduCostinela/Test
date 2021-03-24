@@ -1,0 +1,70 @@
+package test;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Test {
+
+    public static void main(String[] args) {
+
+       
+        Scanner reader = null;
+        FileWriter writer = null;
+        String inputText;
+
+        try {
+
+          
+            reader = new Scanner(System.in);
+
+            
+            writer = new FileWriter("C:\\Folder\\Text.txt");
+
+         
+            while (true) {
+
+                inputText = reader.nextLine();
+
+                
+                if (inputText.equals("end")) {
+                    break;
+                }
+
+                writer.write(inputText);
+
+                
+                writer.write("\n");
+
+            }
+
+        } catch (IOException e) {
+
+            
+            System.out.println("A fatal exception occurred!");
+
+        } finally {
+
+           
+
+            if (reader != null) {
+                reader.close();
+            }
+
+            try {
+
+                if (writer != null) {
+                    writer.close();
+                }
+
+            } catch (IOException e) {
+
+                
+                System.out.println("Closing was not successful.");
+
+            }
+
+        }
+
+    }
+
+}
